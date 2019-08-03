@@ -4,13 +4,13 @@ var express = require("express");
 const bodyParser = require("body-parser");
 
 var app = express();
-var data = "hi";
+const arr = [ "hello", "world", "test"];
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get("/",  (req, res) => res.render("index", {data: data} ));
+app.get("/",  (req, res) => res.render("index", {arr: arr },  ));
 app.get("/create",  (req, res) => res.render("create" ));
-app.get("/create", (req, res) => {console.log(req.body);} );
+
 
 app.listen(3000, function () {
   console.log("Example app listening on port 3000!");
