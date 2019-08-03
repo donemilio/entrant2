@@ -1,17 +1,9 @@
-module.exports = {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
+    
+{
+    "plugins": ["node", "prettier"],
+    "extends": ["eslint:recommended", "plugin:node/recommended"],
     "rules": {
+      "node/exports-style": ["error", "module.exports"],
+      "no-console": 0
     }
-};
+  }

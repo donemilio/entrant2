@@ -1,19 +1,19 @@
-// eslint-disable-next-line no-undef
-var express = require("express");
-//app.use(express.static(__dirname + '/'));
-// eslint-disable-next-line no-undef
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var app = express();
-const arr = [ "hello", "world", "test"];
-app.set("view engine", "ejs");
-app.use(bodyParser.urlencoded({extended: true}));
+const app = express();
 
-app.get("/",  (req, res) => res.render("index", {arr: arr },  ));
-app.get("/create",  (req, res) => res.render("create" ));
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
+const arr = ['hello', 'world', 'test'];
 
-app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+app.get('/', (req, res) => res.render('index', { arr: arr }));
+
+app.get('/create', (req, res) => res.render('create'));
+app.post('/create', (req, res) => {
+  arr.push(req.body.text);
+  res.redirect('/');
 });
 
+app.listen(3000, () => console.log('Example app listening on port 3000!'));
