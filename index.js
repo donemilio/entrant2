@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 var express = require("express");
+//app.use(express.static(__dirname + '/'));
 // eslint-disable-next-line no-undef
 const bodyParser = require("body-parser");
 
